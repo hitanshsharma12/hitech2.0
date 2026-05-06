@@ -24,7 +24,7 @@ const clientWebsites = [
   {
     id: "cafe98",
     name: "Cafe 98",
-    owner: "Anand Dhindwan",
+    owner: "Amartya chauhan",
     website: "https://cafe-98.vercel.app/",
     image: "/cafe98.jpg",
     passcode: "cafe98",
@@ -40,7 +40,7 @@ const clientWebsites = [
   {
     id: "yumigo",
     name: "YumiGo Bakery",
-    owner: "Yumi Team",
+    owner: "sachin falta",
     website: "https://yumigo-mocha.vercel.app/",
     image: "/yumigo.jpg",
     passcode: "yumigo123",
@@ -56,7 +56,7 @@ const clientWebsites = [
   {
     id: "sushnova",
     name: "Sushnova Salon",
-    owner: "Sushma Sharma",
+    owner: "Sushmita",
     website: "https://sushnova.vercel.app/",
     image: "/salon.jpg",
     passcode: "salon2024",
@@ -81,7 +81,7 @@ const clientWebsites = [
     lastPayment: "1-6-2026",
     nextDue: "1-7-2026",
     status: "Active",
-    category: "Hospitality",
+    category: "Cafe",
     visitors: "15K",
     description: "Modern cafe website with smooth UI",
   },
