@@ -343,7 +343,7 @@ const [paymentOpen, setPaymentOpen] = useState(false);
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
             onClick={handleCloseModal}
           >
             <motion.div
@@ -423,14 +423,14 @@ const [paymentOpen, setPaymentOpen] = useState(false);
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-center items-start overflow-y-auto"
             onClick={handleCloseModal}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="glass rounded-2xl w-full max-w-2xl my-8"
+           className="glass rounded-2xl w-full max-w-2xl mt-20 mb-10 mx-3 sm:mx-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header image */}
@@ -463,7 +463,7 @@ const [paymentOpen, setPaymentOpen] = useState(false);
               {/* Content */}
               <div className="p-6 md:p-8 space-y-6">
                 {/* Payment Status Banner */}
-                <div className={`p-4 rounded-xl flex items-center justify-between ${
+                <div className={`p-4 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 ${
                   selectedClient.isPaid 
                     ? "bg-green-500/10 border border-green-500/20" 
                     : "bg-red-500/10 border border-red-500/20"
