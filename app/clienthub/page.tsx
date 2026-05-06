@@ -1,5 +1,5 @@
 "use client";
-
+import PaymentModal from "@/components/PaymentModal";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -72,17 +72,17 @@ const clientWebsites = [
   {
     id: "khopchah",
     name: "Khop-Chah HP10",
-    owner: "Khopcha Team",
+    owner: "Anand Dhindwan",
     website: "https://khop-chah.vercel.app/",
     image: "/cafe.jpg",
     passcode: "khopcha",
-    monthlyCharge: 1200,
+    monthlyCharge: 1500,
     isPaid: true,
-    lastPayment: "2024-01-18",
-    nextDue: "2024-02-18",
+    lastPayment: "1-6-2026",
+    nextDue: "1-7-2026",
     status: "Active",
     category: "Hospitality",
-    visitors: "1.5K",
+    visitors: "15K",
     description: "Modern cafe website with smooth UI",
   },
   {
@@ -130,7 +130,7 @@ export default function ClientHubPage() {
   const [showPasscode, setShowPasscode] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [error, setError] = useState("");
-
+const [paymentOpen, setPaymentOpen] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -490,15 +490,20 @@ export default function ClientHubPage() {
                   </div>
                   
                   {!selectedClient.isPaid && (
-                    <a
-                      href="https://wa.me/917018796714"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm font-medium hover:bg-red-600 transition-colors"
-                    >
-                      Pay Now
-                    </a>
+                   <button
+  onClick={() => setPaymentOpen(true)}
+  className="px-4 py-2 bg-red-500 text-white rounded-lg text-sm font-medium hover:bg-red-600 transition-colors"
+>
+  Pay Now
+</button>
+
                   )}
+                  <button
+  onClick={() => setPaymentOpen(true)}
+  className="px-4 py-2 bg-green-500 text-black rounded-lg text-sm font-medium"
+>
+  Pre Pay This Month ₹1500
+</button>
                 </div>
 
                 {/* Stats Grid */}
@@ -581,6 +586,12 @@ export default function ClientHubPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      <PaymentModal
+  open={paymentOpen}
+  onClose={() => setPaymentOpen(false)}
+  amount={1500}
+  clientName={selectedClient?.name || ""}
+/>
     </main>
   );
 }
