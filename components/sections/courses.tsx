@@ -188,7 +188,7 @@ export default function Courses() {
                 </select>
 
                 {/* Button */}
-                <Link href={`/courses/${course.slug}`}>
+                <Link href="/courses">
                   <button className="w-full mt-5 group/button relative overflow-hidden rounded-2xl bg-foreground text-background py-3.5 font-semibold transition-all duration-300 hover:scale-[1.02]">
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       View Course

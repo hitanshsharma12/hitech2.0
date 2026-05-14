@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk } from "next/font/google";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -14,8 +16,14 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Hi-Tech Services | Premium Digital Solutions",
-  description: "Transform your business with cutting-edge websites and digital solutions. Professional web development for cafes, gyms, salons, and local businesses.",
-  keywords: ["web development", "digital agency", "business website", "professional design"],
+  description:
+    "Transform your business with cutting-edge websites and digital solutions. Professional web development for cafes, gyms, salons, and local businesses.",
+  keywords: [
+    "web development",
+    "digital agency",
+    "business website",
+    "professional design",
+  ],
 };
 
 export default function RootLayout({
@@ -24,11 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
-    >
-      <body className="min-h-screen font-sans antialiased">{children}</body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+        suppressHydrationWarning
+      >
+        <body className="min-h-screen font-sans antialiased bg-background text-foreground">
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
