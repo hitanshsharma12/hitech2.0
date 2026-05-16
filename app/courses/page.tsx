@@ -1,8 +1,12 @@
 "use client";
 
+import LoginButton from "@/components/LoginButton";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import {
   ArrowRight,
@@ -56,6 +60,24 @@ const courses = [
 ];
 
 export default function CoursesPage() {
+  const { data: session } = useSession();
+
+  const router = useRouter();
+
+  const handleBuyCourse = async (slug: string) => {
+    // If user not logged in
+    if (!session) {
+      await signIn("google", {
+        callbackUrl: `/courses/${slug}`,
+      });
+
+      return;
+    }
+
+    // If already logged in
+    router.push(`/courses/${slug}`);
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#030712] text-white">
       {/* Background Glow */}
@@ -120,16 +142,7 @@ export default function CoursesPage() {
 
           {/* Login Button */}
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <button className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-2.5 text-sm font-medium transition hover:bg-white/[0.08]">
-                <span className="relative z-10 flex items-center gap-2">
-                  <User className="w-4 h-4" />
-                  Login
-                </span>
-
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition" />
-              </button>
-            </Link>
+            <LoginButton />
           </div>
         </div>
       </header>
@@ -293,17 +306,20 @@ export default function CoursesPage() {
 
                     {/* Buttons */}
                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                      <Link href={`/courses/${course.slug}`}>
-                        <button className="group/button relative overflow-hidden rounded-2xl bg-white text-black px-8 py-4 font-semibold transition-all duration-300 hover:scale-[1.02]">
-                          <span className="relative z-10 flex items-center justify-center gap-2">
-                            Buy Course
+                      <button
+                        onClick={() =>
+                          handleBuyCourse(course.slug)
+                        }
+                        className="group/button relative overflow-hidden rounded-2xl bg-white text-black px-8 py-4 font-semibold transition-all duration-300 hover:scale-[1.02]"
+                      >
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                          Buy Course
 
-                            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-                          </span>
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                        </span>
 
-                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
-                        </button>
-                      </Link>
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300" />
+                      </button>
 
                       <button className="rounded-2xl border border-white/10 bg-white/[0.03] px-8 py-4 font-medium text-white/80 hover:bg-white/[0.06] transition">
                         Watch Preview
