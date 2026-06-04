@@ -37,18 +37,6 @@ const courses = [
     slug: "web-dev-ai-automation",
   },
 
-  {
-    title: "Marketing & Empire Building",
-    description:
-      "Master branding, social media growth & powerful marketing systems.",
-    price: "₹1499",
-    oldPrice: "₹5,999",
-    discount: "75% OFF",
-    duration: "6 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-    slug: "marketing-empire-building",
-  },
 ];
 
 export default function Courses() {
