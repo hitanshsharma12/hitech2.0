@@ -103,7 +103,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-muted-foreground">
             <Sparkles className="w-4 h-4 text-accent" />
-            <span>Transforming Local Businesses Since 2023</span>
+            <span>Transforming Big Businesses Since 2023</span>
           </div>
         </motion.div>
 
@@ -115,10 +115,10 @@ export default function Hero() {
           className="text-center"
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] text-balance">
-            <span className="gradient-text">The Foundation for</span>
+            <span className="gradient-text">Digital Empire </span>
             <br />
-            <span className="text-foreground">Your Digital</span>{" "}
-            <span className="gradient-text-accent">Empire</span>
+            <span className="text-foreground">of</span>{" "}
+            <span className="gradient-text-accent">Hitansh Sharma</span>
           </h1>
         </motion.div>
 
