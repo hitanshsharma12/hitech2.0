@@ -12,7 +12,7 @@ import {
 
 const courses = [
   {
-    title: "Freelancing with AI",
+    title: "Freelancing with AI + AI Automation",
     description:
       "Learn AI freelancing, automation systems & smart client hunting.",
     price: "₹999",
@@ -24,18 +24,6 @@ const courses = [
     slug: "freelancing-with-ai",
   },
 
-  {
-    title: "Web Dev + AI Automation",
-    description:
-      "Build modern websites using Next.js, Tailwind & AI automation.",
-    price: "₹1499",
-    oldPrice: "₹4,999",
-    discount: "70% OFF",
-    duration: "8 Weeks",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-    slug: "web-dev-ai-automation",
-  },
 
 ];
 
