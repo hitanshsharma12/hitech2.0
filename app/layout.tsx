@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
-import Providers from "@/components/Providers";
+
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -33,7 +33,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans antialiased text-foreground">
-        <Providers>{children}</Providers>
+     
       </body>
     </html>
   );

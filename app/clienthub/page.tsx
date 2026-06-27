@@ -1,5 +1,5 @@
 "use client";
-import PaymentModal from "@/components/PaymentModal";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -586,12 +586,6 @@ const [paymentOpen, setPaymentOpen] = useState(false);
           </motion.div>
         )}
       </AnimatePresence>
-      <PaymentModal
-  open={paymentOpen}
-  onClose={() => setPaymentOpen(false)}
-  amount={1500}
-  clientName={selectedClient?.name || ""}
-/>
     </main>
   );
 }
