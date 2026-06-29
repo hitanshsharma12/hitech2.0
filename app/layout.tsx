@@ -3,8 +3,6 @@ import { Inter, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
-
-
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,9 +21,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
@@ -33,7 +31,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background font-sans antialiased text-foreground">
-     
+        {children}
       </body>
     </html>
   );
